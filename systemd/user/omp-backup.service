@@ -1,0 +1,8 @@
+[Unit]
+Description=Back up OMP configuration
+Documentation=man:systemd.service(5)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env bash %h/.local/bin/omp-backup.sh --mode core --dest /mnt/data/backup/omp/ --keep 30
+ExecStart=/usr/bin/env bash %h/.local/bin/omp-backup.sh --mode full --dest /mnt/data/backup/omp/ --keep 30

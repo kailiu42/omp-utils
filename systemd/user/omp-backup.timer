@@ -1,0 +1,12 @@
+[Unit]
+Description=Run OMP configuration backups every 3 hours
+Documentation=man:systemd.timer(5)
+
+[Timer]
+OnCalendar=*-*-* 00/3:00:00
+Persistent=true
+RandomizedDelaySec=5m
+Unit=omp-backup.service
+
+[Install]
+WantedBy=timers.target
