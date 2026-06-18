@@ -1,0 +1,17 @@
+[Unit]
+Description=OMP auth gateway
+Documentation=https://omp.sh
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment=PATH=%h/bin:%h/.bun/bin:%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=OMP_AUTH_BROKER_URL=http://127.0.0.1:8765
+ExecStart=/usr/bin/env omp auth-gateway serve --bind 127.0.0.1:4000
+Restart=always
+RestartSec=5
+RuntimeMaxSec=4h
+
+[Install]
+WantedBy=default.target
+
